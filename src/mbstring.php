@@ -1,7 +1,6 @@
 <?php
 
 if (!function_exists('mb_trim')) {
-    /* Source https://github.com/PHP-Polyfills/mb_trim/blob/main/src/mb_trim.php */
     /**
      * Multi-byte safely strip white-spaces (or other characters) from the beginning and end of a string.
      *
@@ -10,6 +9,7 @@ if (!function_exists('mb_trim')) {
      * @param string|null $encoding The encoding parameter is the character encoding.
      *
      * @return string The trimmed string.
+     * @link https://github.com/PHP-Polyfills/mb_trim/blob/main/src/mb_trim.php
      */
     function mb_trim(string $string, string $characters = " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}", ?string $encoding = null): string
     {
@@ -52,7 +52,6 @@ if (!function_exists('mb_trim')) {
 }
 
 if (!function_exists('mb_ltrim')) {
-    /* Source https://github.com/PHP-Polyfills/mb_trim/blob/main/src/mb_trim.php */
     /**
      * Multi-byte safely strip white-spaces (or other characters) from the beginning of a string.
      *
@@ -61,6 +60,7 @@ if (!function_exists('mb_ltrim')) {
      * @param string|null $encoding The encoding parameter is the character encoding.
      *
      * @return string The trimmed string.
+     * @link https://github.com/PHP-Polyfills/mb_trim/blob/main/src/mb_trim.php
      */
     function mb_ltrim(string $string, string $characters = " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}", ?string $encoding = null): string
     {
@@ -99,7 +99,6 @@ if (!function_exists('mb_ltrim')) {
 }
 
 if (!function_exists('mb_rtrim')) {
-    /* Source https://github.com/PHP-Polyfills/mb_trim/blob/main/src/mb_trim.php */
     /**
      * Multi-byte safely strip white-spaces (or other characters) from the end of a string.
      *
@@ -108,6 +107,7 @@ if (!function_exists('mb_rtrim')) {
      * @param string|null $encoding The encoding parameter is the character encoding.
      *
      * @return string The trimmed string.
+     * @link https://github.com/PHP-Polyfills/mb_trim/blob/main/src/mb_trim.php
      */
     function mb_rtrim(string $string, string $characters = " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}", ?string $encoding = null): string
     {
@@ -144,7 +144,12 @@ if (!function_exists('mb_rtrim')) {
         return $return;
     }
 }
+
 if (!function_exists('mb_str_replace')) {
+    /**
+     * Multi-byte version of str_replace.
+     * @see function str_replace
+     */
     function mb_str_replace($search, $replace, $subject, &$count = 0)
     {
         if (!is_array($subject)) {
@@ -166,32 +171,43 @@ if (!function_exists('mb_str_replace')) {
 }
 
 if (!function_exists('mb_str_contains')) {
+    /**
+     * Multi-byte version of str_contains.
+     * @see function str_contains
+     */
     function mb_str_contains(string $haystack, string $needle): bool
     {
         return mb_strpos($haystack, $needle) !== false;
     }
 }
 
-
 if (!function_exists('mb_str_ends_with')) {
+    /**
+     * Multi-byte version of str_ends_with.
+     * @see function str_ends_with
+     */
     function mb_str_ends_with(string $haystack, string $needle): bool
     {
         return mb_substr($haystack, -mb_strlen($needle)) === $needle;
     }
 }
 
-if (!function_exists('mb_str_replace')) {
+if (!function_exists('mb_str_starts_with')) {
+    /**
+     * Multi-byte version of str_starts_with.
+     * @see function str_starts_with
+     */
     function mb_str_starts_with(string $haystack, string $needle): bool
     {
         return mb_substr($haystack, mb_strlen($needle)) === $needle;
     }
 }
 
-
 if (!function_exists('mb_ucfirst')) {
-    /* Source https://github.com/PHP-Polyfills/mb_ucfirst-lcfirst/blob/main/src/mb_ucfirst_lcfirst.php */
     /**
      * Make a string's first character uppercase multi-byte safely.
+     * @see function ucfirst
+     * @link https://github.com/PHP-Polyfills/mb_ucfirst-lcfirst/blob/main/src/mb_ucfirst_lcfirst.php
      */
     function mb_ucfirst(string $string, ?string $encoding = null): string
     {
@@ -203,9 +219,10 @@ if (!function_exists('mb_ucfirst')) {
 }
 
 if (!function_exists('mb_lcfirst')) {
-    /* Source https://github.com/PHP-Polyfills/mb_ucfirst-lcfirst/blob/main/src/mb_ucfirst_lcfirst.php */
     /**
      * Make a string's first character lowercase multi-byte safely.
+     * @see function lcfirst
+     * @link https://github.com/PHP-Polyfills/mb_ucfirst-lcfirst/blob/main/src/mb_ucfirst_lcfirst.php
      */
     function mb_lcfirst(string $string, ?string $encoding = null): string
     {
