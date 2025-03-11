@@ -1,0 +1,25 @@
+{
+  "name": "micheldiemer/mbstring",
+  "description": "Complementary functions for the mbstring extension",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "files": [
+      "src/mbstring.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Michel Diemer",
+      "email": "michel.diemer@yahoo.fr"
+    }
+  ],
+  "minimum-stability": "beta",
+  "require": {
+    "php": ">=8.1",
+    "ext-mbstring": "*"
+  },
+  "_comment": [
+    "Based on polyfills/mb-trim ; url:https://github.com/PHP-Polyfills/mb_trim"
+  ]
+}
