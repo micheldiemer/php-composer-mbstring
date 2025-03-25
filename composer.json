@@ -21,6 +21,31 @@
   },
   "_comment": [
     "Based on polyfills/mb-trim ; url:https://github.com/PHP-Polyfills/mb_trim"
-  ]
+  ],
+  "scripts": {
+    "install_phive": "./.phive/install.sh",
+    "install_tools": "phive install",
+    "fix": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix",
+    "fixdry": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix --dry-run --diff",
+    "lint": "phplint",
+    "phpstan": "phpstan",
+    "lint2": [
+      "@lint",
+      "@phpstan"
+    ],
+    "full": [
+      "@lint",
+      "@phpstan",
+      "@fix"
+    ],
+    "phpdoc": [
+        "export COMPOSER_PROCESS_TIMEOUT=9000",
+        "@phpdoc-run",
+        "@phpdoc-fix"
+    ],
+    "gethome": "echo $(composer config home)",
+    "phpdoc-run": "phpdocumentor -v",
+    "phpdoc-fix": "php $(composer config home)/vendor/automattic/phpdoc-markdown/bin/html-to-md.php",
+    "test": "echo 'No tests yet'"
+  }
 }
-

@@ -15,7 +15,7 @@ if (!function_exists('mb_trim')) {
     {
         // On supported versions, use a pre-calculated regex for performance.
         if (PHP_VERSION_ID >= 80200 && ($encoding === null || $encoding === "UTF-8") && $characters === " \f\n\r\t\v\x00\u{00A0}\u{1680}\u{2000}\u{2001}\u{2002}\u{2003}\u{2004}\u{2005}\u{2006}\u{2007}\u{2008}\u{2009}\u{200A}\u{2028}\u{2029}\u{202F}\u{205F}\u{3000}\u{0085}\u{180E}") {
-            return (string)preg_replace("/^[\s\0]+|[\s\0]+$/uD", '', $string);
+            return (string) preg_replace("/^[\s\0]+|[\s\0]+$/uD", '', $string);
         }
 
         try {
@@ -153,8 +153,8 @@ if (!function_exists('mb_str_replace')) {
     function mb_str_replace($search, $replace, $subject, &$count = 0)
     {
         if (!is_array($subject)) {
-            $searches = is_array($search) ? array_values($search) : array($search);
-            $replacements = is_array($replace) ? array_values($replace) : array($replace);
+            $searches = is_array($search) ? array_values($search) : [$search];
+            $replacements = is_array($replace) ? array_values($replace) : [$replace];
             $replacements = array_pad($replacements, count($searches), '');
             foreach ($searches as $key => $search) {
                 $parts = mb_split(preg_quote($search), $subject);

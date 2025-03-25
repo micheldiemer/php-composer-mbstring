@@ -1,0 +1,12 @@
+parameters:
+  level: 0
+  ignoreErrors:
+  paths:
+    - .
+  scanFiles:
+  parallel:
+    maximumNumberOfProcesses: 1
+  excludePaths:
+  dynamicConstantNames:
+  universalObjectCratesClasses:
+  bootstrapFiles:
