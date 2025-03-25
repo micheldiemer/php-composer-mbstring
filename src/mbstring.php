@@ -199,7 +199,7 @@ if (!function_exists('mb_str_starts_with')) {
      */
     function mb_str_starts_with(string $haystack, string $needle): bool
     {
-        return mb_substr($haystack, mb_strlen($needle)) === $needle;
+        return mb_substr($haystack, 0, mb_strlen($needle)) === $needle;
     }
 }
 
